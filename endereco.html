@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endereço</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header >
+        <nav >
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="endereco.html">Endereço</a></li>
+                <li><a href="agendamento.html">Agendamentos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="center-main">
+        <div class="containerForm">
+            <form action="restrito/cadastra-endereco.php" method="post">
+                    <div class="form-header">
+                        <h1>Cadastre seu endereço!</h1>
+                    </div>
+                    <div id="idCep" class="item">
+                        <label for="user">CEP:</label>
+                        <input type="text" id="cep" name="cep" required>
+                    </div >
+                    <div id="idLogradouro" class="item">
+                        <label for="logradouro">Logradouro:</label>
+                        <input type="text" id="logradouro" name="logradouro" required>
+                    </div>
+                    <div id="idCidade" class="item">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" required>
+                    </div>
+                    <div id="idEstado" class="item">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" name="estado" required>
+                    </div>
+                    <div  class="item">
+                        <input type="submit" value="Cadastrar">
+                    </div>
+                    <div id="mensagemCadastro">
+                        Dados cadastrados
+                    </div>                    
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+    
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault(); // Evita o envio padrão do formulário
+    
+                const formData = new FormData(form);
+    
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData
+                    });
+    
+                    if (response.ok) {
+                        // Se a resposta do servidor for bem-sucedida
+                        document.getElementById('mensagemCadastro').style.display = 'block';
+                        form.reset(); // Limpa o formulário após o sucesso
+                    } else {
+                        // Se houver um erro no servidor
+                        console.error('Erro ao cadastrar os dados.');
+                    }
+                } catch (error) {
+                    console.error('Erro de conexão:', error);
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

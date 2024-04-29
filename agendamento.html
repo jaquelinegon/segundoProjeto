@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Agendamentos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css" >
+</head>
+<body>
+    <header >
+        <nav >
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="endereco.html">Endereço</a></li>
+                <li><a href="agendamento.html">Agendamentos</a></li>
+            </ul>
+        </nav>
+    </header>
+  <main class="center-main">
+    <div class="containerForm">
+        <form action="restrito/cadastra-no-banco-agenda.php" method="post" id="formAgendamento">
+        
+                <div class="form-header">
+                    <h1>Agende sua consulta!</h1>
+                </div>
+                <div  class="item">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div  class="item">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div  class="item">
+                    <div class="sexo">
+
+                        <div class="sexo-input">
+                            <label for="feminino">Feminino</label>
+                            <input type="radio" id="feminino" value="Feminino" name="sexo">
+                        </div>
+                        <div class="sexo-input">
+                            <label for="masculino">Masculino</label>
+                            <input type="radio" id="masculino" value="Masculino" name="sexo">
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+                <div  class="item">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <div  class="item">
+                    <div class="divSelect">
+                        <label for="horario">Horário:</label>
+                        <select id="horario" name="horario" required>
+                            <option value="" disabled selected>Selecione um horário</option>
+                            <option value="08:00">08:00 AM</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div  class="item">
+                    <div class="divSelect">
+                        <label for="especialidade">Especialidade:</label>
+                        <select id="especialidade" name="especialidade" onchange="preencheEspecialistas()" required>
+                            <option value="" disabled selected>Escolha a especialidade</option>
+                            <option value="Pediatria">Pediatria</option>
+                            <option value="Ortopedia">Ortopedia</option>
+                            <option value="Cardiologia">Cardiologia</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                <div  class="item">
+                    <div class="divSelect">
+                        <label for="especialista">Médico Especialista:</label>
+                        <select id="especialista" name="especialista" required>
+                            <option value="">Escolha o/a especialista</option>
+                        </select>
+                    </div>
+                    
+                </div>
+
+                <div  class="item">
+                    <input type="submit" value="Agendar">
+                </div>
+                
+            
+        </form>
+    </div>
+  </main>
+  <footer>
+    <p>Direitos resevados.</p>
+  </footer>
+  <script>
+    function preencheEspecialistas()
+    {
+        let xhr = new XMLHttpRequest();
+        var especialidade = document.querySelector("#especialidade").value;
+        xhr.open("GET", "restrito/busca-especialista.php?especialidade="+especialidade, true);    
+        xhr.responseType = "json";
+
+        xhr.onload = function() 
+        {
+        
+            if(xhr.status != 200 || xhr.response===null)
+            {
+                console.log("Resposta nao obtida");
+                return;
+            }
+
+            const especialistas = xhr.response;
+            // Limpa as opções anteriores do select de especialistas
+            document.querySelector("#especialista").innerHTML = "";
+
+            console.log(especialistas);
+            especialistas.forEach(function(especialista) {
+                var option = document.createElement("option");
+                option.text = especialista.nome;
+                option.value = especialista.codigo; 
+                document.querySelector("#especialista").appendChild(option);
+            });
+        };
+        xhr.onerror = function () {
+            console.error("Requisição não finalizada");
+            return;
+        };
+        xhr.send();
+    }
+  </script>
+</body>
+</html>

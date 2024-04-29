@@ -1,0 +1,155 @@
+
+body {
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh; 
+  margin: 0;
+  background-image: url('../images/background.png');
+  background-position: center center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.barraCadastro {
+  text-decoration: none;
+  color:#164863;
+  font-family: 'Montserrat', sans-serif;
+}
+.listagem
+{
+  margin: 0 auto;
+}
+.listagem div
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.listagem h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0;
+
+}
+
+.mainForm
+{
+  width: 55% !important;; 
+  background-color: #ffffff !important;
+  border-radius: 6px;
+  padding: 1.75rem;
+}
+.bodyCadastro
+{
+  background-color: #f0f0f0 !important;
+  
+}
+thead>tr > th{
+  color: #fff!important;
+  background-color: #001f3f!important;
+}
+tbody {
+  background-color: #fff !important;
+}
+.dark
+{
+  color: #fff!important;
+  background-color: #212529!important;
+  /*border-color: #32383e!important;*/
+}
+
+button {
+  margin-top: 1rem;
+}
+
+main {
+  flex-grow: 1; /*  garante que o conteúdo principal estenda-se até o rodapé, mesmo que haja pouco conteúdo. */
+  padding-top: 20px; /* Adicionar algum espaço superior para evitar que o conteúdo fique muito próximo do topo */
+  margin-bottom: 50px; /* Adicionar margem na parte inferior para criar espaço entre o conteúdo e o rodapé */
+  /* min-height: 100vh; */
+}
+
+/* Estilizando o botão Cadastrar */
+.btn-primary {
+  background-color:#164863 !important; /* Cor de fundo do botão */
+  cursor: pointer; /* Altera o cursor ao passar por cima */
+  margin-top: 2% !important;
+}
+
+
+footer {
+  background-color: #427D9D;
+  color: #fff;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+section {
+  padding: 2% 4%;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.apresentacao {
+  display: flex;
+}
+
+
+/*sections: conteudo delas X imagem */ 
+
+
+section .apresentacao {
+  align-items: center; 
+  justify-content: center;
+  gap: 95px; /*distancia entre conteudo e imagem*/
+}
+
+/* estilizando titulos da section da página index */
+.titulo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  color:#164863;
+  max-width: 100%; 
+  width: 100%;
+}
+
+.texto {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  max-width: 100%; 
+  width: 100%;
+}
+
+.imagem {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+
+@media screen and (max-width: 1020px){
+  .apresentacao {
+      flex-direction: column;
+      padding: 3%;
+  }
+  .titulo {
+    font-size: 4vw;
+  }
+  
+  .texto {
+    font-size: 4w;
+  }
+
+  .imagem img {
+      max-width: 100%;
+      height: auto;
+  }
+}

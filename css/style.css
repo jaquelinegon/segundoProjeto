@@ -1,0 +1,406 @@
+
+body {
+    display: flex;
+    flex-direction: column; /* garante que o rodapé sempre fique na parte inferior da página, mesmo que o conteúdo não ocupe toda a altura, pois os elementos serão empilhados verticalmente em relação ao fluxo do documento*/
+    min-height: 100vh; /*ao combinarmos  min-height: 100vh; com flex-direction: column, o corpo (body) sempre terá pelo menos a altura total da janela de visualização, mesmo que o conteúdo seja insuficiente para preencher toda a altura*/
+    margin: 0;
+    background-image: url(../images/background.png);
+    background-position: center center;
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+/* links */
+nav {
+    text-align: center;
+    padding: 1px;
+}
+
+
+li {
+    display: inline-block;
+    margin-right: 35px;
+}
+
+li:hover {
+    box-shadow: 0px 0px 8px white;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a:link, a:visited {
+    color:#164863;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.botao a {
+    background-color: #427D9D;
+    font-family: 'Montserrat', sans-serif;
+    border: none; /* Remove as bordas */
+    color: white; /* Define a cor do texto */
+    text-decoration: none;
+    cursor: pointer; 
+    box-sizing: border-box;
+    padding: 3%;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.botao button:hover {
+    box-shadow: 0px 0px 8px #164863;
+}
+
+
+/* Estilizando a parte dos sections para todas as páginas que possui section */
+
+section {
+    padding: 2% 4%;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.apresentacao {
+    display: flex;
+}
+
+
+/*sections: conteudo delas X imagem */ 
+
+
+section .apresentacao {
+    align-items: center; 
+    justify-content: center;
+    gap: 95px; /*distancia entre conteudo e imagem*/
+}
+
+/* estilizando titulos da section da página index */
+.titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    color:#164863;
+}
+
+.texto {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+}
+
+
+
+/*section 1 da página home */
+
+
+.titulo_home {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 27px;
+    color:#164863;
+}
+
+.texto_home {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color:#164863;
+}
+
+.imagem1_home img {
+    max-width: 450px;
+}
+
+
+/* section 2 da home */
+
+.titulo2_home {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 27px;
+    color:#164863;
+}
+
+.texto2_home {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color:#164863;
+}
+
+.imagem2_home img {
+    max-width: 450px;
+}
+
+
+
+/* Section 3 da home */
+.titulo3_home {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color:#164863;
+}
+
+.texto3_home {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color:#164863;
+}
+
+.imagem3_home img {
+    max-width: 350px; 
+}
+
+
+/* Página galeria */
+
+.cards {
+    font-family: 'Montserrat', sans-serif;
+    color:#164863;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap; /* permite que os cards quebrem para a próxima linha */
+    justify-content: center; /*cards posicionados no centro */
+    gap: 1rem; /*espaço entre eles*/
+}
+
+.card-item {
+    width: 300px; 
+    margin: 0.5rem; 
+    text-align: center;
+    border-radius: 10px; /* para bordas arredondadas */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.card-item img {
+    max-width: 100%; /*largura imagem do card*/
+    height: auto;
+}
+
+.descricao {
+    padding: 20px;
+}
+
+.gallery h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    color:#164863;
+    text-align: center;
+    margin: 5% 10%;
+}
+
+
+
+/****forms *****/
+
+.center-main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerForm {
+    width: 50%; 
+    padding: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    flex-direction: column;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.212);
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;    
+}
+
+.item
+{
+    margin-bottom: 1.5rem; 
+    width: 100%;
+    
+}
+.item input
+{
+    margin-top: 1rem;
+    margin: 0.6rem 0;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow:1px 1px 5px #ccc;
+    width: 100%;
+    text-align: center;
+    
+}
+.item input[type="radio"] {
+    width: auto; 
+    margin-right: 0.5rem; /* Adicionando um margin-right para espaço entre os radios buttons */
+}
+.item label
+{
+    color:#164863;
+}
+.sexo
+{
+    display: flex;
+    justify-content: space-between;
+
+}
+.divSelect select
+{
+    border: none;
+    border-radius: 5px;
+    box-shadow:1px 1px 5px #ccc;
+    width: 100%;
+    text-align: center;
+}
+.form-header
+{
+    color:#164863;
+    text-align: center;
+}
+
+
+/* media queries para ficar responsivo em outras telas*/
+@media screen and (max-width: 300px) {
+    .inicio .apresentacao .conteudo {
+      max-width: 90%; /* Ajuste o valor conforme necessário */
+    }
+    .inicio .apresentacao .imagem img {
+      max-width: 100%; /* Garanta que a imagem se ajuste à largura do contêiner pai */ 
+    }
+    footer {
+        width: 100%;
+    }
+    section .conteudo {
+        max-width: 100%;
+    }
+    .cards {
+        width: 100%; /* Defina a largura dos cartões para ocupar toda a largura da tela em telas muito pequenas */
+    }
+    .containerForm {
+        width: 90%;
+        
+    }
+    .form-header {
+        font-size: 7px;
+    }
+    .sexo {
+        display: block; /* Muda para o layout de bloco */
+    }
+    label {
+        font-size: 12px;
+    }
+
+  }
+  
+  
+@media screen and (max-width: 1020px){
+    .apresentacao {
+        flex-direction: column;
+        padding: 3%;
+    }
+
+
+    .apresentacao .imagem1_home,
+    .apresentacao .imagem2_home,
+    .apresentacao .imagem3_home, .inicio .imagem {
+        order: -1;
+    }
+
+    section .apresentacao {
+        gap: 20px;
+    }
+
+
+    .titulo_inicial {
+        font-size: 27px;
+    }
+
+    .texto_inicial {
+        font-size: 20px;
+    }
+
+
+    /*section home */
+    .imagem_inicial img, .imagem1_home img, .imagem2_home img, .imagem3_home img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .titulo_home {
+        font-size: 25px;
+    }
+
+    .texto_home {
+        font-size: 17px;
+    }
+    /*section 2 home */
+    .titulo2_home {
+        font-size: 25px;
+    }
+
+    .texto2_home {
+        font-size: 17px;
+    }
+
+    /* section 3*/
+    .titulo3_home {
+        font-size: 25px;
+    }
+
+    .texto3_home {
+        font-size: 17px;
+    }
+    /*form do endereço */
+    form {
+        width: 95%;
+    }
+    nav ul {
+        display: block;
+        text-align: center;
+      }
+  
+      nav ul li {
+        display: block;
+        margin-bottom: 10px;
+      }
+  
+      nav ul li:last-child {
+        margin-bottom: 0;
+      }
+      .inicio .imagem img {
+         max-width: 300px;
+      }    
+}
+
+
+
+/*Para que o footer fique ao fim da página*/
+main {
+    flex-grow: 1; /*  garante que o conteúdo principal estenda-se até o rodapé, mesmo que haja pouco conteúdo. */
+    padding-top: 20px; /* Adicionar algum espaço superior para evitar que o conteúdo fique muito próximo do topo */
+    margin-bottom: 50px; /* Adicionar margem na parte inferior para criar espaço entre o conteúdo e o rodapé */
+}
+
+
+footer {
+    background-color: #427D9D;
+    color: #fff;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#loginFailMsg {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#mensagemCadastro {
+    display: none;
+    color:blue;
+    text-align: center;
+}
+
